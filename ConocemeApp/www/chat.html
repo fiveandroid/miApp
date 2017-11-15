@@ -26,7 +26,7 @@
 			alert(p_correo)
 			alert(foto1)
 			*/
-			var v_userId = 'gea_reyesvi@yahoo.com.mx';
+			var v_userId = p_correo;
 			
 		</script>	
 	
@@ -70,7 +70,7 @@
 
         <title>ConoceME!</title>
     </head>
-    <body>
+    <body class="bodyapp">
 		<!--
         <div class="section-center">
             <div class="">
@@ -95,7 +95,7 @@
         </script>
 		-->
 
-        <div id="mck-sidebox" class="mck-sidebox mck-box fade">
+        <div id="mck-sidebox" class="mck-sidebox mck-box fade" style="z-index:-1">
         	<div class="mck-box-dialog mck-box-sm mck-right mck-bg-white">
         		<div id="mck-sidebox-content"
         			class="mck-sidebox-content mck-box-content">
@@ -110,19 +110,20 @@
         						</div>
         						<div class="blk-lg-8 mck-box-title">
         							<div id="mck-tab-title" class="mck-tab-title mck-truncate">
-        								Conversaciones</div>
+        								Chat</div>
         							<div id="mck-tab-status"
         								class="mck-tab-status mck-truncate n-vis"></div>
         							<div class="mck-typing-box mck-truncate n-vis">
-        								<span id="mck-typing-label">typing...</span>
+        								<span id="mck-typing-label">Escribiendo...</span>
         							</div>
         						</div>
         					</div>
         					<div id="mck-tab-conversation" class="mck-row">
-        						<h4 id="mck-conversation-title" class="mck-box-title mck-truncate">Conversaciones</h4>
+        						<h4 id="mck-conversation-title" class="mck-box-title mck-truncate">Chat</h4>
         					</div>
         				</div>
         				<div class="blk-lg-2">
+							<!-- jvra 
         					<button type="button"
         						class="mck-minimize-icon mck-box-close mck-close icon n-vis">
         						<span aria-hidden="true">&minus;</span>
@@ -132,6 +133,7 @@
         						data-dismiss="mckbox" aria-label="Close">
         						<span aria-hidden="true">&times;</span>
         					</button>
+							-->
         				</div>
         			</div>
         			<div id="mck-product-group"
@@ -793,6 +795,8 @@
                         }
                     });
 					
+					var contactjson;
+					
 					$.ajax({  
 						url:  'https://conoceme.vip/juan/phps/chat_app_lista_favoritos.php?id='+idUsuario,
 						headers : { "Content-Type" : "application/json" },
@@ -816,7 +820,7 @@
 							
 						},
 						error: function( jqXhr, textStatus, errorThrown ){
-							alert(textStatus);
+							//alert(textStatus);
 							console.log( errorThrown );
 						}
 					}); 
